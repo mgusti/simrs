@@ -20,8 +20,8 @@
                         <th class="px-4 py-3 text-center text-sm font-semibold text-gray-800 dark:text-white/90">Tersedia</th>
                         <th class="px-4 py-3 text-center text-sm font-semibold text-gray-800 dark:text-white/90">Pria</th>
                         <th class="px-4 py-3 text-center text-sm font-semibold text-gray-800 dark:text-white/90">Wanita</th>
-                        <th class="px-4 py-3 text-left text-sm font-semibold text-gray-800 dark:text-white/90">Terakhir Update</th>
-                        <th class="px-4 py-3 text-center text-sm font-semibold text-gray-800 dark:text-white/90">Aksi</th>
+                        <th class="px-4 py-3 text-right text-sm font-semibold text-gray-800 dark:text-white/90 w-48 whitespace-nowrap">Terakhir Update</th>
+                        <th class="px-4 py-3 text-center text-sm font-semibold text-gray-800 dark:text-white/90 w-28 whitespace-nowrap">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -33,8 +33,8 @@
                             <td class="px-4 py-3 text-center text-sm text-gray-700 dark:text-gray-300">{{ $bed->tersedia }}</td>
                             <td class="px-4 py-3 text-center text-sm text-gray-700 dark:text-gray-300">{{ $bed->tersediapria }}</td>
                             <td class="px-4 py-3 text-center text-sm text-gray-700 dark:text-gray-300">{{ $bed->tersediawanita }}</td>
-                            <td class="px-4 py-3 text-sm text-gray-700 dark:text-gray-300">{{ \Carbon\Carbon::parse($bed->ts)->format('d M Y H:i') }}</td>
-                            <td class="px-4 py-3 text-center">
+                            <td class="px-4 py-3 text-right text-sm text-gray-700 dark:text-gray-300 whitespace-nowrap">{{ \Carbon\Carbon::parse($bed->ts)->format('d M Y H:i') }}</td>
+                            <td class="px-4 py-3 text-center whitespace-nowrap">
                                 <button onclick="openEditModal({{ $bed->id }}, '{{ $bed->kodekelas }}', '{{ $bed->kode_ruang }}', '{{ $bed->ruang }}', {{ $bed->kapasitas }}, {{ $bed->tersedia }}, {{ $bed->tersediapria }}, {{ $bed->tersediawanita }})"
                                     class="inline-flex items-center justify-center rounded-lg border border-brand-500 px-3 py-1.5 text-sm font-medium text-brand-500 transition hover:bg-brand-500 hover:text-white dark:border-brand-600 dark:text-brand-400">
                                     Edit
@@ -47,8 +47,9 @@
         </div>
     </div>
 
+    @push('modals')
     <!-- Edit Modal -->
-    <div id="editModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-gray-900/50">
+    <div id="editModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-gray-900/50" style="z-index: 999999;">
         <div class="w-full max-w-lg rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-900">
             <h3 class="mb-4 text-lg font-semibold text-gray-800 dark:text-white">Edit Tempat Tidur</h3>
             <form id="editForm" method="POST">
@@ -113,6 +114,7 @@
             </form>
         </div>
     </div>
+    @endpush
 
     <script>
         function openEditModal(id, kodekelas, kode_ruang, ruangan, kapasitas, tersedia, tersediapria, tersediawanita) {
