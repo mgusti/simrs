@@ -26,7 +26,7 @@
                     <tr class="border-b border-gray-100 dark:border-gray-800">
                         <th class="px-5 py-4 text-sm font-semibold text-gray-800 dark:text-white/90 sm:px-10">Nama</th>
                         <th class="px-4 py-4 text-sm font-semibold text-gray-800 dark:text-white/90">Email / Username</th>
-                        <th class="px-5 py-4 text-sm font-semibold text-gray-800 dark:text-white/90 text-right sm:px-10">Aksi</th>
+                        <th class="px-5 py-4 text-sm font-semibold text-gray-800 dark:text-white/90 text-left">Aksi</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-100 dark:divide-gray-800">
@@ -38,11 +38,11 @@
                             <td class="px-4 py-4 text-sm text-gray-700 dark:text-gray-300">
                                 {{ $user->email }}
                             </td>
-                            <td class="px-5 py-4 text-sm text-right sm:px-10">
-                                <div class="flex items-center justify-end gap-2">
+                            <td class="px-5 py-4 text-sm sm:px-10">
+                                <div class="flex gap-2">
                                     <!-- Edit Icon -->
                                     <button @click="$dispatch('open-modal', 'edit-user-{{ $user->id }}')" 
-                                        class="p-2 text-blue-600 hover:bg-blue-50 dark:text-blue-400 dark:hover:bg-blue-500/10 rounded-lg transition-colors"
+                                        class="text-left text-blue-600 hover:bg-blue-50 dark:text-blue-400 dark:hover:bg-blue-500/10 rounded-lg transition-colors"
                                         title="Edit User">
                                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
                                     </button>
@@ -51,7 +51,7 @@
                                     <form action="{{ route('manage-users.reset-password', $user->id) }}" method="POST" class="inline" onsubmit="return confirm('Reset password user ini ke 12345678?')">
                                         @csrf
                                         <button type="submit" 
-                                            class="p-2 text-amber-500 hover:bg-amber-50 dark:text-amber-400 dark:hover:bg-amber-500/10 rounded-lg transition-colors"
+                                            class="p-2 text-yellow-500 hover:bg-amber-50 dark:text-amber-400 dark:hover:bg-amber-500/10 rounded-lg transition-colors"
                                             title="Reset Password">
                                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3m-3-3l-2.25-2.25"></path></svg>
                                         </button>
@@ -72,6 +72,7 @@
                         </tr>
 
                         <!-- Edit User Modal -->
+                        @push('modals')
                         <x-common.modal name="edit-user-{{ $user->id }}" title="Edit User: {{ $user->name }}">
                             <form action="{{ route('manage-users.update', $user->id) }}" method="POST" class="p-6">
                                 @csrf
@@ -107,6 +108,7 @@
                                 </div>
                             </form>
                         </x-common.modal>
+                        @endpush
                     @empty
                         <tr>
                             <td colspan="3" class="px-5 py-10 text-center text-gray-500 dark:text-gray-400">Belum ada user tambahan.</td>
@@ -117,6 +119,7 @@
         </div>
     </div>
 
+    @push('modals')
     <!-- Add User Modal -->
     <x-common.modal name="add-user" title="Tambah User Baru">
         <form action="{{ route('manage-users.store') }}" method="POST" class="p-6">
@@ -156,4 +159,5 @@
             </div>
         </form>
     </x-common.modal>
+    @endpush
 @endsection
