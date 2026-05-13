@@ -22,6 +22,8 @@ class User extends Authenticatable
         'email',
         'password',
         'role',
+        'access_tempat_tidur',
+        'access_pengaduan',
     ];
 
     /**
@@ -45,6 +47,8 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
             'role' => 'integer',
+            'access_tempat_tidur' => 'boolean',
+            'access_pengaduan' => 'boolean',
         ];
     }
 

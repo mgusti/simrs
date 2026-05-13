@@ -94,7 +94,7 @@
                     [
                         'id' => 1,
                         'userName' => 'Terry Franci',
-                        'userImage' => '/images/user/user-02.jpg',
+                        'userImage' => asset('images/user/user-02.jpg'),
                         'action' => 'requests permission to change',
                         'project' => 'Project - Nganter App',
                         'type' => 'Project',
@@ -104,7 +104,7 @@
                     [
                         'id' => 2,
                         'userName' => 'Alex Johnson',
-                        'userImage' => '/images/user/user-03.jpg',
+                        'userImage' => asset('images/user/user-03.jpg'),
                         'action' => 'requests permission to change',
                         'project' => 'Project - Nganter App',
                         'type' => 'Project',
@@ -114,7 +114,7 @@
                     [
                         'id' => 3,
                         'userName' => 'Sarah Williams',
-                        'userImage' => '/images/user/user-04.jpg',
+                        'userImage' => asset('images/user/user-04.jpg'),
                         'action' => 'requests permission to change',
                         'project' => 'Project - Dashboard UI',
                         'type' => 'Project',
@@ -124,7 +124,7 @@
                     [
                         'id' => 4,
                         'userName' => 'Mike Brown',
-                        'userImage' => '/images/user/user-05.jpg',
+                        'userImage' => asset('images/user/user-05.jpg'),
                         'action' => 'requests permission to change',
                         'project' => 'Project - E-commerce',
                         'type' => 'Project',
@@ -134,7 +134,7 @@
                     [
                         'id' => 5,
                         'userName' => 'Emma Davis',
-                        'userImage' => '/images/user/user-06.jpg',
+                        'userImage' => asset('images/user/user-06.jpg'),
                         'action' => 'requests permission to change',
                         'project' => 'Project - Mobile App',
                         'type' => 'Project',
@@ -144,7 +144,7 @@
                     [
                         'id' => 6,
                         'userName' => 'John Smith',
-                        'userImage' => '/images/user/user-07.jpg',
+                        'userImage' => asset('images/user/user-07.jpg'),
                         'action' => 'requests permission to change',
                         'project' => 'Project - Landing Page',
                         'type' => 'Project',
@@ -154,7 +154,7 @@
                     [
                         'id' => 7,
                         'userName' => 'Lisa Anderson',
-                        'userImage' => '/images/user/user-08.jpg',
+                        'userImage' => asset('images/user/user-08.jpg'),
                         'action' => 'requests permission to change',
                         'project' => 'Project - Blog System',
                         'type' => 'Project',
@@ -164,7 +164,7 @@
                     [
                         'id' => 8,
                         'userName' => 'David Wilson',
-                        'userImage' => '/images/user/user-09.jpg',
+                        'userImage' => asset('images/user/user-09.jpg'),
                         'action' => 'requests permission to change',
                         'project' => 'Project - CRM Dashboard',
                         'type' => 'Project',

@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TempatTidurController;
+use App\Http\Controllers\PengaduanController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\UserController;
 
 // public auth pages
 Route::get('/signin', [AuthController::class, 'showLoginForm'])->name('signin');
@@ -12,9 +15,7 @@ Route::post('/signout', [AuthController::class, 'logout'])->name('signout');
 
 Route::middleware('auth')->group(function () {
     // dashboard pages
-    Route::get('/', function () {
-        return view('pages.dashboard.ecommerce', ['title' => 'E-commerce Dashboard']);
-    })->name('dashboard');
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
     // calender pages
     Route::get('/calendar', function () {
@@ -29,13 +30,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/tempat-tidur', [TempatTidurController::class, 'index'])->name('tempat-tidur');
     Route::put('/tempat-tidur/{id}', [TempatTidurController::class, 'update'])->name('tempat-tidur.update');
 
-    Route::get('/pengaduan', function () {
-        return view('pages.pengaduan', ['title' => 'Pengaduan']);
-    })->name('pengaduan');
+    Route::get('/pengaduan', [PengaduanController::class, 'index'])->name('pengaduan');
+    Route::get('/pengaduan/download', [PengaduanController::class, 'downloadExcel'])->name('pengaduan.download');
 
-    Route::get('/manage-users', function () {
-        return view('pages.manage-users', ['title' => 'Manage Users']);
-    })->name('manage-users');
+    Route::get('/manage-users', [UserController::class, 'index'])->name('manage-users');
+    Route::post('/manage-users', [UserController::class, 'store'])->name('manage-users.store');
+    Route::put('/manage-users/{id}', [UserController::class, 'update'])->name('manage-users.update');
+    Route::delete('/manage-users/{id}', [UserController::class, 'destroy'])->name('manage-users.destroy');
+    Route::post('/manage-users/{id}/reset-password', [UserController::class, 'resetPassword'])->name('manage-users.reset-password');
 
     // form pages
     Route::get('/form-elements', function () {
@@ -90,6 +92,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/videos', function () {
         return view('pages.ui-elements.videos', ['title' => 'Videos']);
     })->name('videos');
+    Route::get('/password/change', [AuthController::class, 'showChangePasswordForm'])->name('password.change');
+    Route::post('/password/change', [AuthController::class, 'changePassword'])->name('password.update');
 });
 
 

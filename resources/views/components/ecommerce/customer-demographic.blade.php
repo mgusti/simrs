@@ -4,13 +4,13 @@
     $defaultCountries = [
         [
             'name' => 'USA',
-            'flag' => './images/country/country-01.svg',
+            'flag' => asset('images/country/country-01.svg'),
             'customers' => '2,379',
             'percentage' => 79
         ],
         [
             'name' => 'France',
-            'flag' => './images/country/country-02.svg',
+            'flag' => asset('images/country/country-02.svg'),
             'customers' => '589',
             'percentage' => 23
         ],

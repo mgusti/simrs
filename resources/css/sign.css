@@ -1,0 +1,46 @@
+@import './app.css';
+
+@layer base {
+  body.sign-layout {
+    @apply bg-slate-950 text-white;
+    min-height: 100vh;
+  }
+}
+
+@layer utilities {
+  .signin-page {
+    @apply min-h-screen;
+    background-image: radial-gradient(circle at top left, rgba(56, 189, 248, 0.15), transparent 28%),
+      linear-gradient(135deg, #020617 0%, #0f172a 45%, #020617 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .signin-card {
+    @apply rounded-3xl bg-white/10 border border-white/10 shadow-theme-xl backdrop-blur-xl;
+    box-shadow: 0 40px 120px rgba(0, 0, 0, 0.35);
+  }
+
+  .signin-card input {
+    @apply text-white placeholder:text-slate-300;
+  }
+
+  .signin-card label,
+  .signin-card p,
+  .signin-card h1,
+  .signin-card h2 {
+    @apply text-white;
+  }
+
+  .signin-error-box {
+    @apply !text-black bg-red-50/95 border-red-200;
+  }
+
+  .signin-error-box p {
+    @apply !text-black;
+  }
+
+  .error-text {
+    @apply !text-black font-medium;
+  }
+}

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use App\Models\User;
 
 class AuthController extends Controller
 {
@@ -20,7 +22,7 @@ class AuthController extends Controller
     {
         $credentials = $request->validate([
             'email' => ['required', 'email'],
-            'password' => ['required', 'string', 'min:8'],
+            'password' => ['required', 'string', 'min:6'],
         ]);
 
         if (Auth::attempt($credentials, $request->boolean('remember'))) {
@@ -30,7 +32,7 @@ class AuthController extends Controller
         }
 
         return back()->withErrors([
-            'email' => 'Email atau password salah.',
+            'email' => 'Username atau password salah.',
         ])->onlyInput('email');
     }
 
@@ -42,5 +44,32 @@ class AuthController extends Controller
         $request->session()->regenerateToken();
 
         return redirect()->route('signin');
+    }
+
+    public function showChangePasswordForm()
+    {
+        return view('pages.auth.change-password', ['title' => 'Ganti Password']);
+    }
+
+    public function changePassword(Request $request)
+    {
+        $request->validate([
+            'old_password' => ['required', 'string'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+
+        $user = Auth::user();
+
+        if (!Hash::check($request->old_password, $user->password)) {
+            return back()->withErrors([
+                'old_password' => 'Password lama tidak sesuai.',
+            ]);
+        }
+
+        $user->update([
+            'password' => Hash::make($request->password),
+        ]);
+
+        return back()->with('success', 'Password berhasil diperbarui.');
     }
 }
