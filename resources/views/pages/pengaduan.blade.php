@@ -18,11 +18,11 @@
             <table class="w-full">
                 <thead>
                     <tr class="border-b border-gray-200 dark:border-gray-800">
-                        <th class="px-4 py-4 text-left text-sm font-semibold text-gray-800 dark:text-white/90">No</th>
-                        <th class="px-4 py-4 text-left text-sm font-semibold text-gray-800 dark:text-white/90">Pelapor</th>
-                        <th class="px-4 py-4 text-left text-sm font-semibold text-gray-800 dark:text-white/90">Alamat & HP</th>
-                        <th class="px-4 py-4 text-left text-sm font-semibold text-gray-800 dark:text-white/90">Isi Pengaduan</th>
-                        <th class="px-4 py-4 text-left text-sm font-semibold text-gray-800 dark:text-white/90">Tanggal</th>
+                        <th class="px-4 py-4 text-left text-sm font-semibold text-gray-800 dark:text-white/90 w-16">No</th>
+                        <th class="px-4 py-4 text-left text-sm font-semibold text-gray-800 dark:text-white/90 w-48 whitespace-nowrap">Pelapor</th>
+                        <th class="px-4 py-4 text-left text-sm font-semibold text-gray-800 dark:text-white/90 w-32">Alamat & HP</th>
+                        <th class="px-4 py-4 text-left text-sm font-semibold text-gray-800 dark:text-white/90 min-w-[300px] w-auto">Isi Pengaduan</th>
+                        <th class="px-4 py-4 text-left text-sm font-semibold text-gray-800 dark:text-white/90 w-48 whitespace-nowrap">Tanggal</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-100 dark:divide-gray-800">
@@ -35,12 +35,12 @@
                                 {{ $item->nama ?? 'Anonim' }}
                             </td>
                             <td class="px-4 py-4 text-sm text-gray-700 dark:text-gray-300">
-                                <div class="flex flex-col gap-1">
+                                <div class="flex flex-col gap-1 max-w-[150px]">
                                     <span class="font-medium text-gray-900 dark:text-white">{{ $item->hp ?? '-' }}</span>
-                                    <span class="text-xs text-gray-500 dark:text-gray-400">{{ $item->alamat ?? '-' }}</span>
+                                    <span class="text-xs text-gray-500 dark:text-gray-400 whitespace-normal break-words">{{ $item->alamat ?? '-' }}</span>
                                 </div>
                             </td>
-                            <td class="px-4 py-4 text-sm text-gray-700 dark:text-gray-300 max-w-md">
+                            <td class="px-4 py-4 text-sm text-gray-700 dark:text-gray-300">
                                 <div class="whitespace-normal break-words">
                                     {{ $item->pengaduan ?? '-' }}
                                 </div>
