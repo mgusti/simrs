@@ -11,7 +11,7 @@ class MenuHelper
                 'icon' => 'dashboard',
                 'name' => 'Dashboard',
                 'subItems' => [
-                    ['name' => 'Ecommerce', 'path' => '/'],
+                    ['name' => 'Dashboard', 'path' => '/'],
                 ],
             ],
             [
@@ -77,7 +77,6 @@ class MenuHelper
                 'name' => 'Authentication',
                 'subItems' => [
                     ['name' => 'Sign In', 'path' => '/signin', 'pro' => false],
-                    ['name' => 'Sign Up', 'path' => '/signup', 'pro' => false],
                 ],
             ],
         ];
@@ -85,31 +84,50 @@ class MenuHelper
 
     public static function getMenuGroups()
     {
+        $user = auth()->user();
+        $isAdmin = $user && $user->id === 1;
+
+        $items = [
+            [
+                'icon' => 'dashboard',
+                'name' => 'Dashboard',
+                'route' => 'dashboard',
+            ],
+        ];
+
+        if ($user) {
+            // Check for Tempat Tidur access
+            if ($isAdmin || $user->access_tempat_tidur) {
+                $items[] = [
+                    'icon' => 'calendar',
+                    'name' => 'Tempat Tidur',
+                    'route' => 'tempat-tidur',
+                ];
+            }
+
+            // Check for Pengaduan access
+            if ($isAdmin || $user->access_pengaduan) {
+                $items[] = [
+                    'icon' => 'support-ticket',
+                    'name' => 'Pengaduan',
+                    'route' => 'pengaduan',
+                ];
+            }
+
+            // Super Admin only
+            if ($isAdmin) {
+                $items[] = [
+                    'icon' => 'user-profile',
+                    'name' => 'Manage Users',
+                    'route' => 'manage-users',
+                ];
+            }
+        }
+
         return [
             [
                 'title' => 'Menu',
-                'items' => [
-                    [
-                        'icon' => 'dashboard',
-                        'name' => 'Dashboard',
-                        'route' => 'dashboard',
-                    ],
-                    [
-                        'icon' => 'calendar',
-                        'name' => 'Tempat Tidur',
-                        'route' => 'tempat-tidur',
-                    ],
-                    [
-                        'icon' => 'support-ticket',
-                        'name' => 'Pengaduan',
-                        'route' => 'pengaduan',
-                    ],
-                    [
-                        'icon' => 'user-profile',
-                        'name' => 'Manage Users',
-                        'route' => 'manage-users',
-                    ],
-                ],
+                'items' => $items,
             ],
         ];
     }

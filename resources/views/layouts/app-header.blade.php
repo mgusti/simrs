@@ -47,13 +47,13 @@
                         fill="" />
                 </svg>
             </button>
-
-            <!-- Logo (mobile only) -->
-            <a href="/" class="xl:hidden">
-                <img class="dark:hidden" src="/images/logo/logo.svg" alt="Logo" />
-                <img class="hidden dark:block" src="/images/logo/logo-dark.svg" alt="Logo" />
-            </a>
-
+            
+            <!-- Branding (mobile only) -->
+            <div class="xl:hidden flex items-center gap-2">
+                <img class="h-10 w-auto rounded-md border border-gray-200 bg-white p-1 dark:border-gray-700 dark:bg-gray-900" 
+                    src="{{ asset('images/login/simrs.png') }}" alt="SIMRS Logo" />
+                <span class="text-lg font-bold text-gray-900 dark:text-white">SIMRS</span>
+            </div>
             <!-- Application Menu Toggle (mobile only) -->
             <button @click="toggleApplicationMenu()"
                 class="flex items-center justify-center w-10 h-10 text-gray-700 rounded-lg z-99999 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-800 xl:hidden">
@@ -89,6 +89,11 @@
                     </svg>
                 </button>
             </div>
+
+            <a href="{{ route('password.change') }}" 
+                class="inline-flex items-center justify-center rounded-lg border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-700 transition hover:bg-gray-50 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-300 dark:hover:bg-gray-800 mr-2">
+                Ganti Password
+            </a>
 
             <form method="POST" action="{{ route('signout') }}" class="inline">
                 @csrf

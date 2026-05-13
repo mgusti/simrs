@@ -77,7 +77,8 @@
                 <span class="text-xs uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400">RSUD H. Abdul Manap</span>
             </div>
             <img x-show="!$store.sidebar.isExpanded && !$store.sidebar.isHovered && !$store.sidebar.isMobileOpen"
-                src="{{ asset('images/logo/logo-icon.svg') }}" alt="Logo" width="32" height="32" />
+                class="h-8 w-auto rounded-md border border-gray-200 bg-white p-0.5 dark:border-gray-700 dark:bg-gray-900"
+                src="{{ asset('images/login/simrs.png') }}" alt="SIMRS Logo" />
         </div>
     </div>
 

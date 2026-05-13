@@ -59,31 +59,31 @@
                     <div>
                         <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">Kelas</label>
                         <input type="text" id="kodekelas" name="kodekelas" readonly
-                            class="h-10 w-full rounded-lg border border-gray-300 bg-gray-100 px-4 text-sm dark:border-gray-700 dark:bg-gray-800">
+                            class="h-10 w-full rounded-lg border border-gray-300 bg-gray-100 px-4 text-sm dark:border-gray-700 dark:bg-gray-800 dark:text-white">
                     </div>
 
                     <div>
                         <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">Kode Ruang</label>
                         <input type="text" id="kode_ruang" name="kode_ruang" required
-                            class="h-10 w-full rounded-lg border border-gray-300 px-4 text-sm dark:border-gray-700 dark:bg-gray-800">
+                            class="h-10 w-full rounded-lg border border-gray-300 px-4 text-sm dark:border-gray-700 dark:bg-gray-800 dark:text-white">
                     </div>
 
                     <div>
                         <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">Ruangan</label>
                         <input type="text" id="ruangan" name="ruangan" required
-                            class="h-10 w-full rounded-lg border border-gray-300 px-4 text-sm dark:border-gray-700 dark:bg-gray-800">
+                            class="h-10 w-full rounded-lg border border-gray-300 px-4 text-sm dark:border-gray-700 dark:bg-gray-800 dark:text-white">
                     </div>
 
                     <div class="grid grid-cols-2 gap-4">
                         <div>
                             <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">Kapasitas</label>
                             <input type="number" id="kapasitas" name="kapasitas" required
-                                class="h-10 w-full rounded-lg border border-gray-300 px-4 text-sm dark:border-gray-700 dark:bg-gray-800">
+                                class="h-10 w-full rounded-lg border border-gray-300 px-4 text-sm dark:border-gray-700 dark:bg-gray-800 dark:text-white">
                         </div>
                         <div>
                             <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">Tersedia</label>
                             <input type="number" id="tersedia" name="tersedia" required
-                                class="h-10 w-full rounded-lg border border-gray-300 px-4 text-sm dark:border-gray-700 dark:bg-gray-800">
+                                class="h-10 w-full rounded-lg border border-gray-300 px-4 text-sm dark:border-gray-700 dark:bg-gray-800 dark:text-white">
                         </div>
                     </div>
 
@@ -91,12 +91,12 @@
                         <div>
                             <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">Tersedia Pria</label>
                             <input type="number" id="tersediapria" name="tersediapria" required
-                                class="h-10 w-full rounded-lg border border-gray-300 px-4 text-sm dark:border-gray-700 dark:bg-gray-800">
+                                class="h-10 w-full rounded-lg border border-gray-300 px-4 text-sm dark:border-gray-700 dark:bg-gray-800 dark:text-white">
                         </div>
                         <div>
                             <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">Tersedia Wanita</label>
                             <input type="number" id="tersediawanita" name="tersediawanita" required
-                                class="h-10 w-full rounded-lg border border-gray-300 px-4 text-sm dark:border-gray-700 dark:bg-gray-800">
+                                class="h-10 w-full rounded-lg border border-gray-300 px-4 text-sm dark:border-gray-700 dark:bg-gray-800 dark:text-white">
                         </div>
                     </div>
                 </div>
