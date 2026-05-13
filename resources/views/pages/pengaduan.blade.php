@@ -32,7 +32,10 @@
                                 {{ $index + 1 }}
                             </td>
                             <td class="px-4 py-4 text-sm font-medium text-gray-800 dark:text-white/90">
-                                {{ $item->nama ?? 'Anonim' }}
+                                <div class="flex flex-col gap-1">
+                                    <span class="font-medium text-gray-900 dark:text-white">{{ $item->nama ?? 'Anonim' }}</span>
+                                    <span class="text-xs text-gray-500 dark:text-gray-400">{{ $item->email ?? '-' }}</span>
+                                </div>
                             </td>
                             <td class="px-4 py-4 text-sm text-gray-700 dark:text-gray-300">
                                 <div class="flex flex-col gap-1 max-w-[150px]">
