@@ -38,31 +38,31 @@
                             <td class="px-4 py-4 text-sm text-gray-700 dark:text-gray-300">
                                 {{ $user->email }}
                             </td>
-                            <td class="px-5 py-4 text-sm sm:px-10">
-                                <div class="flex gap-2">
+                            <td class="px-3 py-4 text-sm sm:px-10">
+                                <div class="flex items-center gap-2">
                                     <!-- Edit Icon -->
                                     <button @click="$dispatch('open-modal', 'edit-user-{{ $user->id }}')" 
-                                        class="text-left text-blue-600 hover:bg-blue-50 dark:text-blue-400 dark:hover:bg-blue-500/10 rounded-lg transition-colors"
+                                        class="p-2 text-blue-600 hover:bg-blue-50 dark:text-blue-400 dark:hover:bg-blue-500/10 rounded-lg transition-colors"
                                         title="Edit User">
                                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
                                     </button>
                                     
                                     <!-- Reset Password Icon -->
-                                    <form action="{{ route('manage-users.reset-password', $user->id) }}" method="POST" class="inline" onsubmit="return confirm('Reset password user ini ke 12345678?')">
+                                    <form action="{{ route('manage-users.reset-password', $user->id) }}" method="POST" class="m-0" onsubmit="return confirm('Reset password user ini ke 12345678?')">
                                         @csrf
                                         <button type="submit" 
-                                            class="p-2 text-yellow-500 hover:bg-amber-50 dark:text-amber-400 dark:hover:bg-amber-500/10 rounded-lg transition-colors"
+                                            class="p-2 text-yellow-500 hover:bg-yellow-50 dark:text-yellow-400 dark:hover:bg-yellow-500/10 rounded-lg transition-colors flex items-center justify-center"
                                             title="Reset Password">
                                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3m-3-3l-2.25-2.25"></path></svg>
                                         </button>
                                     </form>
 
                                     <!-- Delete Icon -->
-                                    <form action="{{ route('manage-users.destroy', $user->id) }}" method="POST" class="inline" onsubmit="return confirm('Hapus user ini?')">
+                                    <form action="{{ route('manage-users.destroy', $user->id) }}" method="POST" class="m-0" onsubmit="return confirm('Hapus user ini?')">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" 
-                                            class="p-2 text-red-600 hover:bg-red-50 dark:text-red-400 dark:hover:bg-red-500/10 rounded-lg transition-colors"
+                                            class="p-2 text-red-600 hover:bg-red-50 dark:text-red-400 dark:hover:bg-red-500/10 rounded-lg transition-colors flex items-center justify-center"
                                             title="Hapus User">
                                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
                                         </button>
