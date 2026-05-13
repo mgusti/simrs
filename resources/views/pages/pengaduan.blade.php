@@ -34,7 +34,7 @@
                             <td class="px-4 py-4 text-sm font-medium text-gray-800 dark:text-white/90">
                                 {{ $item->nama ?? 'Anonim' }}
                             </td>
-                            <td class="px-4 py-4 text-sm text-gray-700 dark:text-gray-300">
+                            <td class="px-4 py-4 text-sm text-gray-200 dark:text-gray-300">
                                 <div class="flex flex-col gap-1">
                                     <span class="font-medium text-gray-900 dark:text-white">{{ $item->hp ?? '-' }}</span>
                                     <span class="text-xs text-gray-500 dark:text-gray-400">{{ $item->alamat ?? '-' }}</span>
