@@ -6,10 +6,8 @@
         
         <a href="{{ route('pengaduan.download') }}" 
             class="inline-flex items-center gap-2 rounded-lg bg-brand-500 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-brand-600 shadow-theme-xs">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M13.3333 13.3333L10 16.6667M10 16.6667L6.66667 13.3333M10 16.6667V8.33333M16.6667 12.5V13.3333C16.6667 15.1727 15.1727 16.6667 13.3333 16.6667H6.66667C4.82726 16.6667 3.33333 15.1727 3.33333 13.3333V12.5M16.6667 8.33333C16.6667 5.57191 14.4281 3.33333 11.6667 3.33333C10.0211 3.33333 8.56158 4.12642 7.65344 5.35245C7.34588 5.12324 6.96349 5 6.54762 5C5.41675 5 4.5 5.91675 4.5 7.04762C4.5 7.50209 4.64826 7.92193 4.89852 8.2619" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            Download Excel
+            <x-lucide-download class="w-5 h-5" />
+            Download
         </a>
     </div>
 
