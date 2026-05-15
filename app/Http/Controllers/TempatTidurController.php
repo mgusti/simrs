@@ -12,14 +12,20 @@ class TempatTidurController extends Controller
         $beds = TempatTidur::orderBy('ruang', 'asc')
             ->orderBy('kelas', 'asc')
             ->get();
-        return view('pages.tempat-tidur', ['title' => 'Tempat Tidur', 'beds' => $beds]);
+            
+        $classes = TempatTidur::select('kelas')->whereNotNull('kelas')->distinct()->pluck('kelas');
+            
+        return view('pages.tempat-tidur', [
+            'title' => 'Tempat Tidur', 
+            'beds' => $beds,
+            'classes' => $classes
+        ]);
     }
 
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'kodekelas' => 'required|string',
-            'kode_ruang' => 'required|string',
+            'kelas' => 'required|string',
             'ruangan' => 'required|string',
             'kapasitas' => 'required|integer',
             'tersedia' => 'required|integer',
@@ -30,14 +36,13 @@ class TempatTidurController extends Controller
         $bed = TempatTidur::findOrFail($id);
         
         $data = [
-            'kodekelas' => $validated['kodekelas'],
-            'kode_ruang' => $validated['kode_ruang'],
+            'kelas' => $validated['kelas'],
             'ruang' => $validated['ruangan'],
             'kapasitas' => $validated['kapasitas'],
             'tersedia' => $validated['tersedia'],
             'tersediapria' => $validated['tersediapria'],
             'tersediawanita' => $validated['tersediawanita'],
-            'ts' => now(),
+            'ts' => now('Asia/Jakarta'),
         ];
 
         $bed->update($data);

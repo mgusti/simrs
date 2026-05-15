@@ -14,7 +14,7 @@
             <table class="w-full">
                 <thead>
                     <tr class="border-b border-gray-200 dark:border-gray-800">
-                        <th class="px-4 py-3 text-left text-sm font-semibold text-gray-800 dark:text-white/90">Ruang</th>
+                        <th class="px-4 py-3 text-left text-sm font-semibold text-gray-800 dark:text-white/90">Ruangan</th>
                         <th class="px-4 py-3 text-left text-sm font-semibold text-gray-800 dark:text-white/90">Kelas</th>
                         <th class="px-4 py-3 text-center text-sm font-semibold text-gray-800 dark:text-white/90">Kapasitas</th>
                         <th class="px-4 py-3 text-center text-sm font-semibold text-gray-800 dark:text-white/90">Tersedia</th>
@@ -35,7 +35,7 @@
                             <td class="px-4 py-3 text-center text-sm text-gray-700 dark:text-gray-300">{{ $bed->tersediawanita }}</td>
                             <td class="px-4 py-3 text-right text-sm text-gray-700 dark:text-gray-300 whitespace-nowrap">{{ \Carbon\Carbon::parse($bed->ts)->format('d M Y H:i') }}</td>
                             <td class="px-4 py-3 text-center whitespace-nowrap">
-                                <button onclick="openEditModal({{ $bed->id }}, '{{ $bed->kodekelas }}', '{{ $bed->kode_ruang }}', '{{ $bed->ruang }}', {{ $bed->kapasitas }}, {{ $bed->tersedia }}, {{ $bed->tersediapria }}, {{ $bed->tersediawanita }})"
+                                <button onclick="openEditModal({{ $bed->id }}, '{{ $bed->kelas }}', '{{ $bed->ruang }}', {{ $bed->kapasitas }}, {{ $bed->tersedia }}, {{ $bed->tersediapria }}, {{ $bed->tersediawanita }})"
                                     class="inline-flex items-center justify-center rounded-lg border border-brand-500 px-3 py-1.5 text-sm font-medium text-brand-500 transition hover:bg-brand-500 hover:text-white dark:border-brand-600 dark:text-brand-400">
                                     Edit
                                 </button>
@@ -58,20 +58,14 @@
                 
                 <div class="space-y-4">
                     <div>
-                        <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">Kelas</label>
-                        <input type="text" id="kodekelas" name="kodekelas" readonly
-                            class="h-10 w-full rounded-lg border border-gray-300 bg-gray-100 px-4 text-sm dark:border-gray-700 dark:bg-gray-800 dark:text-white">
-                    </div>
-
-                    <div>
-                        <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">Kode Ruang</label>
-                        <input type="text" id="kode_ruang" name="kode_ruang" required
+                        <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">Ruangan</label>
+                        <input type="text" id="ruangan" name="ruangan" required
                             class="h-10 w-full rounded-lg border border-gray-300 px-4 text-sm dark:border-gray-700 dark:bg-gray-800 dark:text-white">
                     </div>
 
                     <div>
-                        <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">Ruangan</label>
-                        <input type="text" id="ruangan" name="ruangan" required
+                        <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">Kelas</label>
+                        <input type="text" id="kelas" name="kelas" required
                             class="h-10 w-full rounded-lg border border-gray-300 px-4 text-sm dark:border-gray-700 dark:bg-gray-800 dark:text-white">
                     </div>
 
@@ -117,9 +111,8 @@
     @endpush
 
     <script>
-        function openEditModal(id, kodekelas, kode_ruang, ruangan, kapasitas, tersedia, tersediapria, tersediawanita) {
-            document.getElementById('kodekelas').value = kodekelas;
-            document.getElementById('kode_ruang').value = kode_ruang;
+        function openEditModal(id, kelas, ruangan, kapasitas, tersedia, tersediapria, tersediawanita) {
+            document.getElementById('kelas').value = kelas;
             document.getElementById('ruangan').value = ruangan;
             document.getElementById('kapasitas').value = kapasitas;
             document.getElementById('tersedia').value = tersedia;
