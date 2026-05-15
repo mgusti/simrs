@@ -42,6 +42,7 @@ class UserController extends Controller
             'password' => Hash::make($request->password),
             'access_tempat_tidur' => $request->has('access_tempat_tidur'),
             'access_pengaduan' => $request->has('access_pengaduan'),
+            'access_jadwal_dokter' => $request->has('access_jadwal_dokter'),
         ]);
 
         return back()->with('success', 'User berhasil ditambahkan.');
@@ -69,6 +70,7 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->access_tempat_tidur = $request->has('access_tempat_tidur');
         $user->access_pengaduan = $request->has('access_pengaduan');
+        $user->access_jadwal_dokter = $request->has('access_jadwal_dokter');
         $user->save();
 
         return back()->with('success', 'User berhasil diperbarui.');

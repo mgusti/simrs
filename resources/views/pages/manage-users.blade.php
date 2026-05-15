@@ -98,6 +98,11 @@
                                                 class="w-4 h-4 rounded border-gray-300 text-brand-500 focus:ring-brand-500 dark:border-gray-700 dark:bg-gray-800">
                                             <span class="text-sm text-gray-700 dark:text-gray-300 font-medium">Akses Pengaduan</span>
                                         </label>
+                                        <label class="flex items-center gap-3 cursor-pointer">
+                                            <input type="checkbox" name="access_jadwal_dokter" {{ $user->access_jadwal_dokter ? 'checked' : '' }}
+                                                class="w-4 h-4 rounded border-gray-300 text-brand-500 focus:ring-brand-500 dark:border-gray-700 dark:bg-gray-800">
+                                            <span class="text-sm text-gray-700 dark:text-gray-300 font-medium">Akses Jadwal Dokter</span>
+                                        </label>
                                     </div>
                                     <div class="flex justify-end gap-3 pt-8 pb-4">
                                         <button type="button" @click="show = false" class="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 transition-colors">Batal</button>
@@ -148,6 +153,11 @@
                         <input type="checkbox" name="access_pengaduan"
                             class="w-4 h-4 rounded border-gray-300 text-brand-500 focus:ring-brand-500 dark:border-gray-700 dark:bg-gray-800">
                         <span class="text-sm text-gray-700 dark:text-gray-300 font-medium">Akses Pengaduan</span>
+                    </label>
+                    <label class="flex items-center gap-3 cursor-pointer">
+                        <input type="checkbox" name="access_jadwal_dokter"
+                            class="w-4 h-4 rounded border-gray-300 text-brand-500 focus:ring-brand-500 dark:border-gray-700 dark:bg-gray-800">
+                        <span class="text-sm text-gray-700 dark:text-gray-300 font-medium">Akses Jadwal Dokter</span>
                     </label>
                 </div>
                 <div class="flex justify-end gap-3 pt-8 pb-4">

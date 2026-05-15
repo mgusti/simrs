@@ -114,6 +114,15 @@ class MenuHelper
                 ];
             }
 
+            // Check for Jadwal Dokter access
+            if ($isAdmin || $user->access_jadwal_dokter) {
+                $items[] = [
+                    'icon' => 'calendar',
+                    'name' => 'Jadwal Dokter',
+                    'route' => 'jadwal-dokter',
+                ];
+            }
+
             // Super Admin only
             if ($isAdmin) {
                 $items[] = [
