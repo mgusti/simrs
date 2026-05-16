@@ -52,7 +52,7 @@
             <div class="xl:hidden flex items-center gap-2">
                 <img class="h-10 w-auto rounded-md border border-gray-200 bg-white p-1 dark:border-gray-700 dark:bg-gray-900" 
                     src="{{ asset('images/login/simrs.png') }}" alt="SIMRS Logo" />
-                <span class="text-lg font-bold text-gray-900 dark:text-white">SIMRS</span>
+                <span class="text-lg font-bold text-gray-900 dark:text-white">Admin</span>
             </div>
             <!-- Application Menu Toggle (mobile only) -->
             <button @click="toggleApplicationMenu()"

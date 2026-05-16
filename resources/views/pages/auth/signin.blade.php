@@ -9,7 +9,7 @@
                     <div class="flex flex-col items-center text-center">
                         <img src="{{ asset('images/login/simrs.png') }}" alt="SIMRS Logo" class="mx-auto h-20 w-auto" />
                         <h1 class="mt-6 text-title-sm sm:text-title-md mb-2 font-semibold text-white">
-                            SIMRS RSUD H. Abdul Manap Kota Jambi
+                            Admin RSUD H. Abdul Manap Kota Jambi
                         </h1>
                         <p class="text-sm text-slate-300">
                             Silakan login untuk melanjutkan ke sistem.
