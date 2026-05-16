@@ -10,6 +10,11 @@
                     class="w-44 h-10 rounded-lg border border-gray-200 bg-white px-3 text-sm focus:border-brand-500 focus:ring-brand-500 dark:border-gray-800 dark:bg-white/[0.03] dark:text-white transition-all shadow-theme-xs"
                     autocomplete="off">
 
+                <button @click="$dispatch('open-modal', 'add-dokter')" class="inline-flex h-10 items-center gap-2 rounded-lg border border-gray-200 bg-white px-4 text-sm font-medium text-gray-700 transition hover:bg-gray-50 shadow-theme-xs dark:border-gray-800 dark:bg-white/[0.03] dark:text-gray-300 dark:hover:bg-white/5">
+                    <x-lucide-user-plus class="w-5 h-5" />
+                    Tambah Dokter
+                </button>
+
                 <button @click="$dispatch('open-modal', 'add-jadwal')" class="inline-flex h-10 items-center gap-2 rounded-lg bg-brand-500 px-4 text-sm font-medium text-white transition hover:bg-brand-600 shadow-theme-xs">
                     <x-lucide-plus class="w-5 h-5" />
                     Tambah Jadwal
@@ -141,6 +146,27 @@
 </div>
 
     @push('modals')
+    <!-- Add Dokter Modal -->
+    <x-common.modal name="add-dokter" title="Tambah Dokter Baru">
+        <form action="{{ route('dokter.store') }}" method="POST" class="p-6">
+            @csrf
+            <div class="space-y-5">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Nama Dokter</label>
+                    <input type="text" name="nm_dokter" required 
+                        placeholder="Ketik nama dokter lengkap..."
+                        class="w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm focus:border-brand-500 focus:ring-brand-500 dark:border-gray-700 dark:text-white"
+                        autocomplete="off">
+                </div>
+
+                <div class="flex justify-end gap-3 pt-4">
+                    <button type="button" @click="show = false" class="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 transition-colors">Batal</button>
+                    <button type="submit" class="rounded-lg bg-brand-500 px-6 py-2.5 text-sm font-medium text-white hover:bg-brand-600 shadow-theme-xs transition-colors">Simpan Dokter</button>
+                </div>
+            </div>
+        </form>
+    </x-common.modal>
+
     <!-- Add Modal -->
     <x-common.modal name="add-jadwal" title="Tambah Jadwal Dokter Baru">
         <form action="{{ route('jadwal-dokter.store') }}" method="POST" class="p-6">

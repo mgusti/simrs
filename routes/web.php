@@ -37,6 +37,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/jadwal-dokter', [App\Http\Controllers\JadwalDokterController::class, 'store'])->name('jadwal-dokter.store');
     Route::put('/jadwal-dokter/{id}', [App\Http\Controllers\JadwalDokterController::class, 'update'])->name('jadwal-dokter.update');
     Route::delete('/jadwal-dokter/{id}', [App\Http\Controllers\JadwalDokterController::class, 'destroy'])->name('jadwal-dokter.destroy');
+    Route::post('/dokter', [App\Http\Controllers\JadwalDokterController::class, 'storeDokter'])->name('dokter.store');
 
     Route::get('/manage-users', [UserController::class, 'index'])->name('manage-users');
     Route::post('/manage-users', [UserController::class, 'store'])->name('manage-users.store');
