@@ -96,4 +96,17 @@ class JadwalDokterController extends Controller
         JadwalDokter::where('dokter_id', $id)->delete();
         return back()->with('success', 'Seluruh data jadwal dokter berhasil dihapus dari daftar.');
     }
+
+    public function storeDokter(Request $request)
+    {
+        $request->validate([
+            'nm_dokter' => 'required|string|max:100',
+        ]);
+
+        Dokter::create([
+            'nm_dokter' => $request->nm_dokter,
+        ]);
+
+        return back()->with('success', 'Dokter baru berhasil ditambahkan.');
+    }
 }

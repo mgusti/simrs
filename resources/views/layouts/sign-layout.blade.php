@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ $title ?? 'Sign In' }} | SIMRS - RSUD H. Abdul Manap</title>
+    <title>{{ $title ?? 'Sign In' }} | Admin - RSUD H. Abdul Manap</title>
 
     <!-- Sign page assets -->
     @vite(['resources/css/sign.css', 'resources/js/sign.js'])

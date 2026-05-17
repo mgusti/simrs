@@ -73,7 +73,7 @@
                 src="{{ asset('images/login/simrs.png') }}" alt="SIMRS Logo" />
             <div x-show="$store.sidebar.isExpanded || $store.sidebar.isHovered || $store.sidebar.isMobileOpen"
                 class="flex flex-col">
-                <span class="text-lg font-semibold text-gray-900 dark:text-white/90">SIMRS</span>
+                <span class="text-lg font-semibold text-gray-900 dark:text-white/90">Admin</span>
                 <span class="text-xs uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400">RSUD H. Abdul Manap</span>
             </div>
             <img x-show="!$store.sidebar.isExpanded && !$store.sidebar.isHovered && !$store.sidebar.isMobileOpen"
