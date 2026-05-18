@@ -24,6 +24,8 @@ class User extends Authenticatable
         'role',
         'access_tempat_tidur',
         'access_pengaduan',
+        'access_jadwal_dokter',
+        'access_informasi',
     ];
 
     /**
@@ -49,6 +51,8 @@ class User extends Authenticatable
             'role' => 'integer',
             'access_tempat_tidur' => 'boolean',
             'access_pengaduan' => 'boolean',
+            'access_jadwal_dokter' => 'boolean',
+            'access_informasi' => 'boolean',
         ];
     }
 

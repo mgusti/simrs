@@ -43,6 +43,7 @@ class UserController extends Controller
             'access_tempat_tidur' => $request->has('access_tempat_tidur'),
             'access_pengaduan' => $request->has('access_pengaduan'),
             'access_jadwal_dokter' => $request->has('access_jadwal_dokter'),
+            'access_informasi' => $request->has('access_informasi'),
         ]);
 
         return back()->with('success', 'User berhasil ditambahkan.');
@@ -71,6 +72,7 @@ class UserController extends Controller
         $user->access_tempat_tidur = $request->has('access_tempat_tidur');
         $user->access_pengaduan = $request->has('access_pengaduan');
         $user->access_jadwal_dokter = $request->has('access_jadwal_dokter');
+        $user->access_informasi = $request->has('access_informasi');
         $user->save();
 
         return back()->with('success', 'User berhasil diperbarui.');

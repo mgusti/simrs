@@ -123,6 +123,15 @@ class MenuHelper
                 ];
             }
 
+            // Check for Informasi access
+            if ($isAdmin || $user->access_informasi) {
+                $items[] = [
+                    'icon' => 'pages',
+                    'name' => 'Informasi',
+                    'route' => 'informasi',
+                ];
+            }
+
             // Super Admin only
             if ($isAdmin) {
                 $items[] = [

@@ -9,6 +9,9 @@ use App\Http\Controllers\UserController;
 
 // public auth pages
 Route::get('/signin', [AuthController::class, 'showLoginForm'])->name('signin');
+
+// Public API
+Route::get('/api/informasi', [App\Http\Controllers\InformasiController::class, 'getApiData']);
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/signin', [AuthController::class, 'signin'])->name('signin.submit');
 Route::post('/signout', [AuthController::class, 'logout'])->name('signout');
@@ -35,6 +38,11 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/jadwal-dokter', [App\Http\Controllers\JadwalDokterController::class, 'index'])->name('jadwal-dokter');
     Route::post('/jadwal-dokter', [App\Http\Controllers\JadwalDokterController::class, 'store'])->name('jadwal-dokter.store');
+
+    Route::get('/informasi', [App\Http\Controllers\InformasiController::class, 'index'])->name('informasi');
+    Route::post('/informasi', [App\Http\Controllers\InformasiController::class, 'store'])->name('informasi.store');
+    Route::put('/informasi/{id}', [App\Http\Controllers\InformasiController::class, 'update'])->name('informasi.update');
+    Route::delete('/informasi/{id}', [App\Http\Controllers\InformasiController::class, 'destroy'])->name('informasi.destroy');
     Route::put('/jadwal-dokter/{id}', [App\Http\Controllers\JadwalDokterController::class, 'update'])->name('jadwal-dokter.update');
     Route::delete('/jadwal-dokter/{id}', [App\Http\Controllers\JadwalDokterController::class, 'destroy'])->name('jadwal-dokter.destroy');
     Route::post('/dokter', [App\Http\Controllers\JadwalDokterController::class, 'storeDokter'])->name('dokter.store');
